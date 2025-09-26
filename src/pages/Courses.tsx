@@ -1,3 +1,5 @@
+import { AddCourseDialog } from "@/components/AddCourseDialog"
+
 const Courses = () => {
   return (
     <div className="flex-1 space-y-8 p-8">
@@ -15,9 +17,7 @@ const Courses = () => {
       <div className="space-y-6">
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-semibold">Your Courses</h2>
-          <button className="px-4 py-2 bg-gradient-to-r from-primary to-primary-glow text-primary-foreground rounded-lg hover:shadow-lg transition-all duration-200">
-            Add Course
-          </button>
+          <AddCourseDialog />
         </div>
         
         <div className="p-8 rounded-lg border bg-card text-center">
