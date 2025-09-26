@@ -41,7 +41,6 @@
 
 
 
-
 import { useState } from "react"
 import {
   Dialog,
@@ -51,20 +50,14 @@ import {
 import { Button } from "@/components/ui/button"
 import { Plus } from "lucide-react"
 import { AddCourseForm } from "./AddCourseForm"
-
-interface Course {
-  courseName: string
-  courseCode: string
-  teacherName: string
-  weeklyHours: number
-}
+import type { CourseFormValues } from "./AddCourseForm" // reuse form types
 
 export function AddCourseDialog() {
   const [open, setOpen] = useState(false)
-  const [courses, setCourses] = useState<Course[]>([])  // store courses
+  const [courses, setCourses] = useState<CourseFormValues[]>([])
 
-  const handleSubmit = (data: Course) => {
-    setCourses((prev) => [...prev, data]) // add new course
+  const handleSubmit = (data: CourseFormValues) => {
+    setCourses((prev) => [...prev, data])
     setOpen(false)
   }
 
@@ -86,7 +79,7 @@ export function AddCourseDialog() {
         </DialogContent>
       </Dialog>
 
-      {/* Render added courses */}
+      {/* Show added courses */}
       <div className="space-y-4">
         {courses.length === 0 ? (
           <p className="text-muted-foreground">No courses added yet.</p>
